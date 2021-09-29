@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+#docker run -dp 3000:3000 --network todo-app -e MYSQL_HOST=mysql -e MYSQL_USER=root -e MYSQL_PASSWORD=test -e MYSQL_DB=test imagenode
+  app:
+    image: actividad1
+    ports:
+      - 8060:8060
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: test
+      MYSQL_DB: test
+# docker run -d     --network todo-app --network-alias mysql  -e MYSQL_ROOT_PASSWORD=secret     -e MYSQL_DATABASE=todos     mysql:5.7
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: test
